@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Batches</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
+<script disable-devtool-auto src='https://cdn.jsdelivr.net/npm/disable-devtool'></script>
+<script>
+        window.onload = function() {
+            debugger; // Debugger will pause here when the page is loaded
+        };
+    </script>
+    <style>
+        body {
+            font-family: 'Poppins', Arial, sans-serif;
+            background-color: #f0f0f5;
+            color: #333;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        body {
+    padding-top: 60px; /* Creates space for the fixed header */
+}
+
+header {
+    background-color: #f8f011;
+    padding: 1rem 10px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Adds shadow */
+    height: 50px;
+    width: 100%; /* Sets width to full screen */
+    box-sizing: border-box; /* Ensures padding is included in width */
+    position: fixed; /* Fixes header to the top */
+    top: 10px; /* Keeps header at the top */
+    left: 5px; /* Aligns header with the left edge */
+    right: 5px; /* Aligns header with the right edge */
+    z-index: 1000; /* Ensures header stays above other elements */
+}
+
+        .icon {
+            width: 24px;
+            height: 24px;
+            cursor: pointer;
+        }
+
+        .header-title {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .container {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            justify-content: center;
+        }
+
+        .batch-card {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            width: 300px;
+            border: 1px solid #e0e0e0;
+            position: relative;
+        }
+
+        .batch-card img {
+            width: 100%;
+            height: auto;
+        }
+
+        .batch-info {
+            padding: 15px;
+            text-align: left;
+        }
+
+        .batch-title {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: #ffcc00;
+            color: #333;
+            font-size: 0.8em;
+            font-weight: bold;
+            padding: 4px 8px;
+            border-radius: 4px;
+        }
+
+        .description {
+            font-size: 0.9em;
+            color: #666;
+            margin: 10px 0;
+        }
+
+        .class-info {
+            display: flex;
+            align-items: center;
+            font-size: 0.9em;
+            margin-bottom: 5px;
+            color: #444;
+        }
+
+        .class-info img {
+            width: 20px;
+            margin-right: 8px;
+        }
+
+        .price-section {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 15px;
+        }
+
+        .price {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #28a745;
+        }
+
+        .original-price {
+            font-size: 0.9em;
+            color: #999;
+            text-decoration: line-through;
+        }
+
+        .discount {
+            background-color: #dff0d8;
+            color: #28a745;
+            font-size: 0.8em;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .button {
+            flex: 1;
+            text-align: center;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 0.9em;
+            text-decoration: none;
+            color: #000000;
+            font-weight: bold;
+        }
+
+        .explore {
+            background-color: #f8f011;
+        }
+
+        .buy-now {
+            background-color: #ff4081;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Poppins', Arial, sans-serif;
+            background-color: #f0f0f0;
+            color: #000000;
+        }
+        header {
+    background-color: #f8f011;
+    padding: 1rem 10px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Adds shadow */
+    height: 50px;
+    width: 100%; /* Sets width to full screen */
+    box-sizing: border-box; /* Ensures padding is included in width */
+    position: fixed; /* Fixes header to the top */
+    top: 10px; /* Keeps header at the top */
+    left: 0; /* Aligns header with the left edge */
+    right: 0; /* Aligns header with the right edge */
+    z-index: 1000; /* Ensures header stays above other elements */
+}
+
+/* Add some content below to demonstrate scrolling */
+.content {
+    padding: 20px;
+    height: 2000px; /* Just for demonstration, creates a long scrollable page */
+}
+
+header h1 {
+    margin-right: auto;
+}
+
+header img {
+    margin-left: auto; /* Aligns the image to the right */
+    margin-right: 5px;
+    margin-top: 5px; /* Adjust this value to move the image up or down */
+    /* Alternatively, you can use the transform property */
+    /* transform: translateY(2px); Adjust this value as needed */
+}
+
+.icon {
+    width: 24px;
+    height: 24px;
+    fill: #fff;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.header-title {
+    font-size: 1.2rem;
+    font-weight: 800; /* Set to 900 for maximum boldness */
+    color: #000000;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.15);
+    font-family: "Arial", sans-serif;
+    letter-spacing: 0.5px;
+}
+    </style>
+</head>
+ 
+<body>
+     <header>
+        <a href="javascript:history.back()"><img src="https://th.bing.com/th/id/R.757dcae10509bdbcbbbe7231f9cec8ab?rik=7RO2A7Du7jYBww&riu=http%3a%2f%2fpluspng.com%2fimg-png%2fleft-arrow-png-left-icon-1600.png&ehk=nQr%2fWbRJHtKEaV53ijq71OpNptgpG4FZxnChrIO0fBI%3d&risl=&pid=ImgRaw&r=0" alt="Back" width="24" height="24"></a>
+         <span class="header-title">Study Buddy</span>
+         
+     </header><br>
+
+    <div class="container">
+        <!-- Batch Card -->
+        <div class="batch-card">
+            <div class="badge">new</div>
+            <img src="https://static.pw.live/5eb393ee95fab7468a79d189/5a5a419f-84f6-4f74-a68a-080b1d228a2f.png" alt="Udaan 2024">
+            <div class="batch-info">
+                <div class="batch-title">Udaan 2024</div>
+                <div class="description">For Class 10th CBSE Students</div>
+               
+                <div class="price-section">
+                    <div>
+                        <span class="price">₹Free</span>
+                        <span class="original-price">₹1500</span>
+                    </div>
+                    <span class="discount">100% Discount</span>
+                </div>
+                <div class="buttons">
+                    <a href="/Sb-content/index.html?batchId=63fc81b613f7a600180bf85a" class="button explore">Lets Study</a>
+                </div>
+            </div>
+        </div>
+        <div class="batch-card">
+            <div class="badge">new</div>
+            <img src="https://static.pw.live/5eb393ee95fab7468a79d189/ADMIN/3cebcda8-d55c-49a9-966b-0af15db5cb6b.png" alt="Udaan 2024">
+            <div class="batch-info">
+                <div class="batch-title">10th Board Booster 2025</div>
+                <div class="description">For Class 10th CBSE Students</div>
+               
+                <div class="price-section">
+                    <div>
+                        <span class="price">₹Free</span>
+                        <span class="original-price">₹1500</span>
+                    </div>
+                    <span class="discount">100% Discount</span>
+                </div>
+                <div class="buttons">
+                    <a href="/Sb-content/index.html?batchId=67164de642619f53eab1d669" class="button explore">Lets Study</a>
+                </div>
+            </div>
+        </div>
+ <div class="batch-card">
+            <div class="badge">new</div>
+            <img src="https://d2bps9p1kiy4ka.cloudfront.net/5eb393ee95fab7468a79d189/67aaea57-7244-4f29-b452-80e0096d03a5.jpeg" alt="Udaan 2025">
+            <div class="batch-info">
+                <div class="batch-title">Udaan 2025</div>
+                <div class="description">For Class 10th CBSE Students</div>
+               
+                <div class="price-section">
+                    <div>
+                        <span class="price">₹Free</span>
+                        <span class="original-price">₹1500</span>
+                    </div>
+                    <span class="discount">100% Discount</span>
+                </div>
+                <div class="buttons">
+                    <a href="/Sb-content/index.html?batchId=udaan-2025-645851" class="button explore">Lets Study</a>
+                </div>
+            </div>
+        </div>
+ <div class="batch-card">
+            <div class="badge">new</div>
+            <img src="https://d2bps9p1kiy4ka.cloudfront.net/5eb393ee95fab7468a79d189/7d7139cf-edfe-427c-befc-e587ef5fb593.png" alt="Udaan 2.0 2025">
+            <div class="batch-info">
+                <div class="batch-title">Udaan 2.0 2025</div>
+                <div class="description">For Class 10th CBSE Students</div>
+               
+                <div class="price-section">
+                    <div>
+                        <span class="price">₹Free</span>
+                        <span class="original-price">₹1500</span>
+                    </div>
+                    <span class="discount">100% Discount</span>
+                </div>
+                <div class="buttons">
+                    <a href="/Sb-content/index.html?batchId=udaan-2-0-2025-525017" class="button explore">Lets Study</a>
+                </div>
+            </div>
+        </div>
+ <div class="batch-card">
+            <div class="badge">new</div>
+            <img src="https://static.pw.live/5eb393ee95fab7468a79d189/ADMIN/23a9bc63-89ed-4222-aa60-3ca668ae73cb.png" alt="Udaan 3.0 2025">
+            <div class="batch-info">
+                <div class="batch-title">Udaan 3.0 2025</div>
+                <div class="description">For Class 10th CBSE Students</div>
+               
+                <div class="price-section">
+                    <div>
+                        <span class="price">₹Free</span>
+                        <span class="original-price">₹1500</span>
+                    </div>
+                    <span class="discount">100% Discount</span>
+                </div>
+                <div class="buttons">
+                    <a href="/Sb-content/index.html?batchId=udaan-3-0-2025-821107" class="button explore">Lets Study</a>
+                </div>
+            </div>
+        </div>
+ <div class="batch-card">
+            <div class="badge">new</div>
+            <img src="https://static.pw.live/5eb393ee95fab7468a79d189/ADMIN/82037deb-983d-4717-a187-1fe1f6dec3b0.png" alt="Udaan Diamond 2025">
+            <div class="batch-info">
+                <div class="batch-title">UDAAN Diamond 2025</div>
+                <div class="description">For Class 10th CBSE Students</div>
+               
+                <div class="price-section">
+                    <div>
+                        <span class="price">₹Free</span>
+                        <span class="original-price">₹1500</span>
+                    </div>
+                    <span class="discount">100% Discount</span>
+                </div>
+                <div class="buttons">
+                    <a href="/Sb-content/index.html?batchId=udaan-diamond-2025-507966" class="button explore">Lets Study</a>
+                </div>
+            </div>
+        </div>
+ <div class="batch-card">
+            <div class="badge">new</div>
+            <img src="https://d2bps9p1kiy4ka.cloudfront.net/5eb393ee95fab7468a79d189/9cb67bc7-837c-43ce-9c5d-5600a549f4a5.jpg" alt="Udaan Reloaded 2025">
+            <div class="batch-info">
+                <div class="batch-title">Udaan Reloaded 2025</div>
+                <div class="description">For Class 10th CBSE Students</div>
+               
+                <div class="price-section">
+                    <div>
+                        <span class="price">₹Free</span>
+                        <span class="original-price">₹1500</span>
+                    </div>
+                    <span class="discount">100% Discount</span>
+                </div>
+                <div class="buttons">
+                    <a href="/Sb-content/index.html?batchId=66c5797d749a1b0018487450" class="button explore">Lets Study</a>
+                </div>
+            </div>
+        </div>
+       
+        <!-- Add more batch-cards similarly -->
+    </div>
+</body>
+</html>

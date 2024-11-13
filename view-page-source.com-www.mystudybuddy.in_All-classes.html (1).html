@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class Selection</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
+<script disable-devtool-auto src='https://cdn.jsdelivr.net/npm/disable-devtool'></script>
+<script>
+        window.onload = function() {
+            debugger; // Debugger will pause here when the page is loaded
+        };
+    </script>
+    <style>
+        body {
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+        body {
+    padding-top: 60px; /* Creates space for the fixed header */
+}
+
+        header {
+    background-color: #f8f011;
+    padding: 1rem 10px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Adds shadow */
+    height: 50px;
+    width: 100%; /* Sets width to full screen */
+    box-sizing: border-box; /* Ensures padding is included in width */
+    position: fixed; /* Fixes header to the top */
+    top: 10px; /* Keeps header at the top */
+    left: 0; /* Aligns header with the left edge */
+    right: 0; /* Aligns header with the right edge */
+    z-index: 1000; /* Ensures header stays above other elements */
+}
+
+/* Add some content below to demonstrate scrolling */
+.content {
+    padding: 20px;
+    height: 2000px; /* Just for demonstration, creates a long scrollable page */
+}
+
+header h1 {
+    margin-right: auto;
+}
+
+header img {
+    margin-left: auto; /* Aligns the image to the right */
+    margin-right: 5px;
+    margin-top: 5px; /* Adjust this value to move the image up or down */
+    /* Alternatively, you can use the transform property */
+    /* transform: translateY(2px); Adjust this value as needed */
+}
+
+.icon {
+    width: 24px;
+    height: 24px;
+    fill: #fff;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.header-title {
+    font-size: 1.2rem;
+    font-weight: 800; /* Set to 900 for maximum boldness */
+    color: #000000;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.15);
+    font-family: "Arial", sans-serif;
+    letter-spacing: 0.5px;
+}
+
+
+        .notification-icon {
+            margin-left: auto;
+        }
+
+        .container {
+            width: auto;
+            height: auto;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            padding: 10px;
+        }
+
+        .block {
+            width: calc(40% - 10px); /* Reduced width for smaller squares */
+            height: calc(40vw - 20px);  /* Square shape based on width */
+            max-width: 200px;
+            max-height: 200px;
+            background-color: #f0f0f0;
+            border-radius: 10px;
+            padding: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: auto; /* Center blocks on smaller screens */
+        }
+
+        .block img {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 10px;
+        }
+
+        .block-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #333;
+        }
+        a.block {
+    text-decoration: none;
+    color: inherit;
+}
+
+    </style>
+     <link rel="icon" href="https://studybuddyofficial.vercel.app/photo_2024-09-12_17-57-44.jpg" type="image/png">
+</head>
+<body>
+    <header>
+       <a href="index.html"><img src="https://th.bing.com/th/id/R.757dcae10509bdbcbbbe7231f9cec8ab?rik=7RO2A7Du7jYBww&riu=http%3a%2f%2fpluspng.com%2fimg-png%2fleft-arrow-png-left-icon-1600.png&ehk=nQr%2fWbRJHtKEaV53ijq71OpNptgpG4FZxnChrIO0fBI%3d&risl=&pid=ImgRaw&r=0" alt="Back" width="24" height="24"></a>
+        <span class="header-title">Select Your Class</span>
+       
+    </header>
+
+    <div class="container">
+        <a href="/9th/index.html" class="block">
+            <img src="https://studybuddyofficial.vercel.app/9.png" alt="Image 1">
+            <div class="block-title">Class 9th</div>
+        </a>
+        <a href="/10th/index.html" class="block">
+            <img src="https://studybuddyofficial.vercel.app/10.png" alt="Image 2">
+            <div class="block-title">Class 10th</div>
+        </a>
+        <a href="/11th/index.html" class="block">
+            <img src="https://studybuddyofficial.vercel.app/11.png" alt="Image 3">
+            <div class="block-title">Class 11th</div>
+        </a>
+        <a href="/12th/index.html" class="block">
+            <img src="https://studybuddyofficial.vercel.app/12.png" alt="Image 4">
+            <div class="block-title">Class 12th</div>
+        </a>
+    </div>
+    
+</body>
+</html>

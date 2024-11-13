@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Buddy</title>
+    <link rel="icon" href="https://studybuddyofficial.vercel.app/photo_2024-09-12_17-57-44.jpg" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script defer='98938' src='//api.linkshortify.com/verify.js'/>
+</head>
+
+<script>
+window.onload = function() {
+            debugger; // Debugger will pause here when the page is loaded
+        };
+</script>
+
+ <script>
+	   new PerfectScrollbar(".user-list")
+  
+
+document.addEventListener('touchstart', handleTouchStart, false);        
+document.addEventListener('touchmove', handleTouchMove, false);
+
+var xDown = null;                                                        
+var yDown = null;
+var touchCount = 0; // Number of active touch points                                                      
+
+function handleTouchStart(evt) {                                         
+    if (evt.touches.length === 3) {  // Check for three fingers
+        touchCount = 3;
+        xDown = evt.touches[0].clientX;                                      
+        yDown = evt.touches[0].clientY;  
+    } else {
+        touchCount = 0; // Reset if not three fingers
+    }
+};                                                
+
+function handleTouchMove(evt) {
+    if (!xDown || !yDown || touchCount !== 3) {  // Only proceed if three fingers
+        return;
+    }
+
+    var xUp = evt.touches[0].clientX;     
+    var yUp = evt.touches[0].clientY;
+
+    var xDiff = xDown - xUp;
+    var yDiff = yDown - yUp;
+
+    if (Math.abs(xDiff) > Math.abs(yDiff)) { 
+        if (xDiff > 0) {
+            // Left swipe with three fingers
+            alert("Three-finger left swipe detected! Screenshot disabled.");
+        } else {
+            // Right swipe with three fingers
+            alert("Three-finger right swipe detected! Screenshot disabled.");
+        }                       
+    } else {
+        if (yDiff > 0) {
+            // Up swipe with three fingers
+            alert("Three-finger up swipe detected! Screenshot disabled.");
+        } else { 
+            // Down swipe with three fingers
+            alert("Three-finger down swipe detected! Screenshot disabled.");
+        }                                                                 
+    }
+    // Reset values
+    xDown = null;
+    yDown = null;
+    touchCount = 0;                                             
+};
+
+
+</script>
+
+
+
+
+<style>
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Poppins', Arial, sans-serif;
+font-weight: 600; /* Adjust for boldness */
+font-size: 0.8em; /* Adjust size to your preference */            background-color: #f0f0f0;
+    color: #000000;
+}
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #f0f0f0;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+    padding: 20px;
+}
+body {
+    padding-top: 60px; /* Creates space for the fixed header */
+}
+
+header {
+    background-color: #f8f011;
+    padding: 1rem 10px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Adds shadow */
+    height: 50px;
+    width: 100%; /* Sets width to full screen */
+    box-sizing: border-box; /* Ensures padding is included in width */
+    position: fixed; /* Fixes header to the top */
+    top: 10px; /* Keeps header at the top */
+    left: 0; /* Aligns header with the left edge */
+    right: 0; /* Aligns header with the right edge */
+    z-index: 1000; /* Ensures header stays above other elements */
+}
+
+/* Add some content below to demonstrate scrolling */
+.content {
+    padding: 20px;
+    height: 2000px; /* Just for demonstration, creates a long scrollable page */
+}
+
+header h1 {
+    margin-right: auto;
+}
+
+header img {
+    margin-left: auto;
+}
+
+.icon {
+    width: 24px;
+    height: 24px;
+    fill: #fff;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.header-title {
+    font-size: 1.2rem;
+    font-weight: 800; /* Set to 900 for maximum boldness */
+    color: #000000;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.15);
+    font-family: "Arial", sans-serif;
+    letter-spacing: 0.5px;
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.profile {
+    flex: 1;
+    min-width: 300px;
+    text-align: center;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: 5px 5px 15px rgba(90, 75, 218, 0.25), -5px -5px 15px rgba(255, 255, 255, 0.8);
+}
+
+.profile-pic img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    
+}
+.camera-icon {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: #fff;
+    border-radius: 50%;
+    padding: 0.25rem;
+    width: 24px;
+    height: 24px;
+}
+h1 {
+    font-size: 1.5rem;
+    margin-top: 1rem;
+    color: #8b5cf6;
+}
+.progress-card {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 5px 5px 15px rgba(90, 75, 218, 0.25), -5px -5px 15px rgba(255, 255, 255, 0.8);
+    
+}
+.progress-bar {
+    background-color: #e2e8f0;
+    height: 8px;
+    border-radius: 4px;
+    margin: 0.5rem 0;
+    overflow: hidden;
+}
+.progress {
+    background-color: #8b5cf6;
+    height: 100%;
+    width: 70%;
+}
+.courses {
+    flex: 2;
+    min-width: 300px;
+    
+}
+.courses-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+.courses-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+.course-card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    box-shadow: 5px 5px 15px rgba(251, 2, 2, 0.25), -5px -5px 15px rgba(255, 255, 255, 0.8);
+}
+.course-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    margin-right: 0.75rem;
+    flex-shrink: 0;
+    overflow: hidden;
+    
+}
+.course-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    box-shadow: 5px 5px 15px rgba(90, 75, 218, 0.25), -5px -5px 15px rgba(255, 255, 255, 0.8);
+}
+.course-info h3 {
+    font-size: 1rem;
+    margin-bottom: 0.25rem;
+    color: #000000;
+}
+.course-info p {
+    font-size: 0.75rem;
+    color: #6b7280;
+}
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100%;
+    background-color: #fff;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 1000;
+}
+.sidebar.open {
+    transform: translateX(0);
+}
+.sidebar-header {
+    padding: 1rem;
+    border-bottom: 1px solid #e2e8f0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f8f011;
+    color: #000000;
+}
+.sidebar-content {
+    padding: 1rem;
+}
+.sidebar-link {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem;
+    color: #000000;
+    text-decoration: none;
+    transition: background-color 0.2s;
+}
+.sidebar-link:hover {
+    background-color: #f3f4f6;
+}
+.sidebar-link svg {
+    margin-right: 0.75rem;
+}
+.notification-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #f3e8ff;
+    transform: translateY(100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 1000;
+}
+.notification-popup.open {
+    transform: translateY(0);
+}
+.notification-header {
+    padding: 1rem;
+    border-bottom: 1px solid #e2e8f0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #8b5cf6;
+    color: #fff;
+}
+.notification-content {
+    padding: 1rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+.notification-item {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+.notification-item h3 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    color: #8b5cf6;
+}
+.notification-item p {
+    font-size: 0.875rem;
+    color: #6b7280;
+}
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+    z-index: 999;
+}
+.overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+    .profile, .courses {
+        min-width: 100%;
+    }
+}
+.icon {
+width: 24px;
+height: 24px;
+fill: #fff;
+cursor: pointer;
+/* Remove the white shadow effect */
+box-shadow: 5px 5px 15px rgba(90, 75, 218, 0.25);
+}
+            /* Floating Telegram Button Style */
+        .telegram-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #0088cc;
+            color: white;
+            padding: 10px;
+            border-radius: 50%;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 1000;
+            animation: bounce 2s infinite;
+        }
+        .telegram-btn img {
+            width: 30px;
+            height: 30px;
+        }
+
+        /* Bounce Animation */
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-15px);
+            }
+            60% {
+                transform: translateY(-8px);
+            }
+        }
+</style>
+<body>
+    <div class="container">
+        <header>
+            <svg class="icon" id="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="3" y1="12" x2="21" y2="12"></line>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+            <span class="header-title">Study Buddy</span>
+            <img src="https://studybuddyofficial.vercel.app/notification.png" alt="image" width="24" height="24" id="notification-icon">
+        </header><br>
+        
+        <main>
+            <div class="courses">
+                <div class="courses-header">
+                    <h2>Physics Wallah Zone</h2>
+                </div>
+                <div class="courses-grid">
+                    <div class="course-card" onclick="window.location.href='All-classes.html'">
+                        <div class="course-icon">
+                            <img src="https://th.bing.com/th/id/R.678a3d86d6a3a71a0e643c8b5be2cab9?rik=fq6G05U1FTjVZA&riu=http%3a%2f%2fdesign.petercwood.com%2frw_common%2fimages%2fAsset+1.png&ehk=0RGG0IxLSIFwiA4uqaY%2f%2bPq6q3qO1%2blXc1Km5Su%2fx3Y%3d&risl=&pid=ImgRaw&r=0" alt="Study Buddy">
+                        </div>
+                        <div class="course-info">
+                            <h3>All Batches</h3>
+                            <p>Physics Wallah</p>
+                        </div>
+                    </div>
+
+                    <div class="course-card" onclick="window.location.href='Coming-Soon.html'">
+                        <div class="course-icon">
+                            <img src="https://studybuddyofficial.vercel.app/khazana.jpg" alt="AMET icon">
+                        </div>
+                        <div class="course-info">
+                            <h3>Khazana</h3>
+                            <p>Physics Wallah</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="courses">
+                <div class="courses-header">
+                    <h2>Next Toppers Zone</h2>
+                </div>
+                <div class="courses-grid">
+                    <div class="course-card" onclick="window.location.href='https://sbofficials.netlify.app/next-toppers'">
+                        <div class="course-icon">
+                            <img src="https://studybuddyofficial.vercel.app/Next-toppers-logo.png" alt="GATE icon">
+                        </div>
+                        <div class="course-info">
+                            <h3>All Batches</h3>
+                            <p>Next Toppers</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h2>Menu</h2>
+            <svg class="icon" id="close-sidebar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+        </div>
+        <div class="sidebar-content">
+            <a href="index.html" class="sidebar-link"><img src="https://studybuddyofficial.vercel.app/home.webp" alt="image" width="24" height="24">Home</a>
+            <a href="All-classes.html" class="sidebar-link"><img src="https://th.bing.com/th/id/R.678a3d86d6a3a71a0e643c8b5be2cab9?rik=fq6G05U1FTjVZA&riu=http%3a%2f%2fdesign.petercwood.com%2frw_common%2fimages%2fAsset+1.png&ehk=0RGG0IxLSIFwiA4uqaY%2f%2bPq6q3qO1%2blXc1Km5Su%2fx3Y%3d&risl=&pid=ImgRaw&r=0" alt="image" width="24" height="24">All Batches</a>
+            <a href="Coming-Soon.html" class="sidebar-link"><img src="https://studybuddyofficial.vercel.app/khazana.jpg" alt="image" width="24" height="24">Khazana</a>
+            <a href="https://sbofficials.netlify.app/next-toppers" class="sidebar-link"><img src="https://studybuddyofficial.vercel.app/Next-toppers-logo.png" alt="image" width="24" height="24">Next Toppers</a>
+        </div>
+    </div>
+
+    <div class="notification-popup" id="notification-popup">
+        <div class="notification-header">
+            <h2>Notifications</h2>
+            <svg class="icon" id="close-notification" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+        </div>
+            <div class="notification-item">
+                <h3>Study Buddy</h3>
+                <p>Thank you for Choosing Study Buddy.</p>
+            </div>
+        </div>
+    </div>
+ <a href="https://t.me/SB_BKUP" target="_blank" class="telegram-btn" title="Join us on Telegram">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram Logo">
+    </a>
+
+    <div class="overlay" id="overlay"></div>
+
+    <script>
+        const menuIcon = document.getElementById('menu-icon');
+        const notificationIcon = document.getElementById('notification-icon');
+        const sidebar = document.getElementById('sidebar');
+        const notificationPopup = document.getElementById('notification-popup');
+        const closeSidebar = document.getElementById('close-sidebar');
+        const closeNotification = document.getElementById('close-notification');
+        const overlay = document.getElementById('overlay');
+
+        menuIcon.addEventListener('click', () => {
+            sidebar.classList.add('open');
+            overlay.classList.add('active');
+        });
+
+        notificationIcon.addEventListener('click', () => {
+            notificationPopup.classList.add('open');
+            overlay.classList.add('active');
+        });
+
+        closeSidebar.addEventListener('click', () => {
+            sidebar.classList.remove('open');
+            overlay.classList.remove('active');
+        });
+
+        closeNotification.addEventListener('click', () => {
+            notificationPopup.classList.remove('open');
+            overlay.classList.remove('active');
+        });
+
+        overlay.addEventListener('click', () => {
+            sidebar.classList.remove('open');
+            notificationPopup.classList.remove('open');
+            overlay.classList.remove('active');
+        });
+    </script>
+</body>
+</html>
